@@ -1,5 +1,4 @@
 {% set version = '1.4-12' %}
-
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,30 +9,31 @@ package:
 source:
   fn: EbayesThresh_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/EbayesThresh_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/EbayesThresh/EbayesThresh_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/EbayesThresh_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/EbayesThresh/EbayesThresh_{{ version }}.tar.gz
   sha256: 28850348aa0752a75e0c8f1ae20ef7e352a6493abe8b6a6c40ac09f5476b421d
 
 build:
-  number: 0
+  merge_build_host: True  # [win]
+  number: 1
   skip: true  # [win32]
-
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
+  host:
     - r-base
     - r-wavethresh
-
   run:
     - r-base
     - r-wavethresh
 
 test:
   commands:
-    - $R -e "library('EbayesThresh')"  # [not win]
+    - $R -e "library('EbayesThresh')"           # [not win]
     - "\"%R%\" -e \"library('EbayesThresh')\""  # [win]
 
 about:
@@ -58,3 +58,5 @@ extra:
     - bgruening
     - daler
     - jdblischak
+    - cbrueffer
+    - dbast
