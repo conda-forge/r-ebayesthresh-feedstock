@@ -1,11 +1,11 @@
-About r-ebayesthresh
-====================
+About r-ebayesthresh-feedstock
+==============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-ebayesthresh-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/stephenslab/EbayesThresh
 
 Package license: GPL (>= 2)
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-ebayesthresh-feedstock/blob/main/LICENSE.txt)
 
 Summary: Empirical Bayes thresholding using the methods developed by I. M. Johnstone and B. W. Silverman. The basic problem is to estimate a mean vector given a vector of observations of the mean vector plus white noise, taking advantage of possible sparsity in the mean vector. Within a Bayesian formulation, the elements of the mean vector are modelled as having, independently, a distribution that is a mixture of an atom of probability at zero and a suitable heavy-tailed distribution. The mixing parameter can be estimated by a marginal maximum likelihood approach. This leads to an adaptive thresholding approach on the original data. Extensions of the basic method, in particular to wavelet thresholding, are also implemented within the package.
 
